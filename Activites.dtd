@@ -1,0 +1,57 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT Activites (sport+,personne+,club+,moniteur+,pratique+)>
+<!ATTLIST Activites
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT sport (categorie)>
+<!ATTLIST sport
+  xmlns CDATA #FIXED ''
+  nom NMTOKEN #REQUIRED>
+
+<!ELEMENT personne (nom,adresse)>
+<!ATTLIST personne
+  xmlns CDATA #FIXED ''
+  ident NMTOKEN #REQUIRED>
+
+<!ELEMENT club EMPTY>
+<!ATTLIST club
+  xmlns CDATA #FIXED ''
+  ident NMTOKEN #REQUIRED
+  nom NMTOKEN #REQUIRED>
+
+<!ELEMENT moniteur EMPTY>
+<!ATTLIST moniteur
+  xmlns CDATA #FIXED ''
+  club NMTOKEN #REQUIRED
+  ident NMTOKEN #REQUIRED
+  nom NMTOKEN #REQUIRED>
+
+<!ELEMENT pratique (choixsports+,annee)>
+<!ATTLIST pratique
+  xmlns CDATA #FIXED ''
+  ident NMTOKEN #REQUIRED
+  moniteur NMTOKEN #REQUIRED
+  personne NMTOKEN #REQUIRED>
+
+<!ELEMENT categorie (#PCDATA)>
+<!ATTLIST categorie
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT nom (#PCDATA)>
+<!ATTLIST nom
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT adresse (#PCDATA)>
+<!ATTLIST adresse
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT choixsports EMPTY>
+<!ATTLIST choixsports
+  xmlns CDATA #FIXED ''
+  duree CDATA #REQUIRED
+  sport NMTOKEN #REQUIRED>
+
+<!ELEMENT annee (#PCDATA)>
+<!ATTLIST annee
+  xmlns CDATA #FIXED ''>

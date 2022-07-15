@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Activites SYSTEM "Activites.dtd">
+<Activites>
+    <sport nom="S1">
+        <categorie>G1</categorie>
+    </sport>
+    <sport nom="S2">
+        <categorie>G2</categorie>
+    </sport>
+    <sport nom="S3">
+        <categorie>G3</categorie>
+    </sport>
+    <personne ident="P1">
+        <nom>Ali</nom>
+        <adresse>SBA</adresse>
+    </personne>
+    <personne ident="P2">
+        <nom>AMEL</nom>
+        <adresse>alger</adresse>
+    </personne>
+    <personne ident="P3">
+        <nom>Omar</nom>
+        <adresse>Oran</adresse>
+    </personne>
+    <club ident="C1" nom="club1"/>
+    <club ident="C2" nom="club2"/>
+    <moniteur ident="M1" nom="Amine" club="C1"/>
+    <moniteur ident="M2" nom="Ahmed" club="C2"/>
+    <moniteur ident="M3" nom="Mohamed" club="C1"/>
+    <pratique ident="R1" moniteur="M1" personne="P1">
+        <choixsports sport="S1" duree="4"/>
+        <annee>2017</annee>
+    </pratique>
+    <pratique ident="R2" moniteur="M2" personne="P2">
+        <choixsports sport="S2" duree="6"/>
+        <annee>2017</annee>
+    </pratique>
+    <pratique ident="R3" moniteur="M1" personne="P1">
+        <choixsports sport="S3" duree="4"/>
+        <choixsports sport="S2" duree="4"/>
+        <annee>2018</annee>
+    </pratique>
+</Activites>

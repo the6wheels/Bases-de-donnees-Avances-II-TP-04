@@ -1,0 +1,56 @@
+(.1. Les identifiants des personnes ayant pratiqué le sport ‘S1’.)
+
+
+for $b in doc("lesActivites.xml")/Activites/pratique where $b/choixsports/@sport = "S1" return data($b/@ident)
+
+
+
+
+
+(.2. Les adresses des personnes ayant pratiqué le sport ‘S1’.)
+
+
+for $b in doc("lesActivites.xml")/Activites/personne
+where contains(data($b/@ident),for $c in $b/../pratique where $c/choixsports/@sport = "S1" return data($c/@personne)) 
+return $b/data(adresse)
+
+
+
+
+
+(.3. Le nombre de sports pratiqués par la personne ‘P1’.)
+
+
+let $k := doc("lesActivites.xml")/Activites/pratique
+return sum(
+for $a in doc("lesActivites.xml")/Activites/pratique
+where $a/@personne = "P1"
+return count($a/choixsports/@sport))
+
+
+
+
+
+
+(.4. La liste des noms des moniteurs en service.)
+
+
+for $a in doc("lesActivites.xml")/Activites/moniteur
+where $a/@ident=$a/../pratique/@moniteur
+return data($a/@nom)
+
+
+
+
+
+
+(.5. Le nom du club où travaille la personne (moniteur) ‘Amine’.)
+
+
+
+for $a in doc("lesActivites.xml")/Activites/club
+where  $a/@ident= (
+for $b in Activites/moniteur
+where $b/@nom = "Amine"
+return $b/@club)
+return data($a/@nom)
